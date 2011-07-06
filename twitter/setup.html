@@ -9,10 +9,13 @@
     <script type="text/javascript" src="js/lib/Session.js"></script>
     <script type="text/javascript" src="js/lib/DirectMessage.js"></script>
     <script type="text/javascript" src="js/lib/Follow.js"></script>
-    <script type="text/javascript" src="js/models/UserModel.js"></script>
-    <script type="text/javascript" src="js/models/ProfileModel.js"></script>
-    <script type="text/javascript" src="js/models/DirectMessageModel.js"></script>
-    <script type="text/javascript" src="js/models/TweetModel.js"></script>
+    <script type="text/javascript" src="js/lib/Profile.js"></script>
+    <script type="text/javascript" src="js/model/UserModel.js"></script>
+    <script type="text/javascript" src="js/model/TweetModel.js"></script>
+    <script type="text/javascript" src="js/model/ProfileModel.js"></script>
+    <script type="text/javascript" src="js/model/FollowManager.js"></script>
+    <script type="text/javascript" src="js/model/DirectMessageModel.js"></script>
+
     <script type="text/javascript">
         var userModel = new UserModel(),
                 tweetModel = new TweetModel(),
@@ -50,7 +53,7 @@
         for (var i = 0, l = userData.length; i < l; i++) {
             var user = userData[i], size = Math.round(Math.random() * 5) + 2;
 
-            userModel.createUser(user.username, user.password, user.email);
+            user = userModel.createUser(user.username, user.password, user.email);
 
             for (var j = 0; j < size; j++) {
                 tweetModel.postTweet(user, tart.LoremIpsum());
